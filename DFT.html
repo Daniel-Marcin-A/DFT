@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>DFT Analysis with Partial Results</title>
+    <!-- Biblioteki z CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@11.8.0/lib/browser/math.min.js"></script>
+    <!-- Nasz plik JS -->
+    <script src="./DFT.js" defer></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>Aplikacja do liczenia DFT (z wynikami pośrednimi)</h1>
+
+        <article>
+            <h4>Konfiguracja liczby składowych (1...10)</h4>
+            <label for="numComponents">Ilość składowych:</label>
+            <input type="number" id="numComponents" min="1" max="10" value="2" oninput="createComponentsInputs()" />
+            <div id="componentsContainer"></div>
+
+            <h4>Parametry próbkowania</h4>
+            <label for="samplingRate">Częstotliwość próbkowania [Hz]:</label>
+            <input type="number" id="samplingRate" value="300" />
+
+            <label for="numberOfSamples">Ilość próbek:</label>
+            <input type="number" id="numberOfSamples" value="6" />
+
+            <button onclick="DFTAlgorithm()">Oblicz DFT</button>
+        </article>
+
+        <!-- Sekcja do wyświetlania próbek i wyników pośrednich -->
+        <article id="results"></article>
+
+        <!-- Sekcja do wyświetlania wyników końcowych DFT -->
+        <article id="DFTresults"></article>
+
+        <!-- Wykres sygnału -->
+        <article>
+            <canvas id="SignalAndSamples"></canvas>
+        </article>
+
+        <!-- Wykres słupkowy DFT -->
+        <article>
+            <canvas id="DFTBarChart" width="600" height="400"></canvas>
+        </article>
+    </main>
+</body>
+
+</html>
