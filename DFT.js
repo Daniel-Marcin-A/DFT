@@ -81,7 +81,7 @@ function createComponentsInputs() {
     container.appendChild(div);
   }
 }
-
+createComponentsInputs();
 /*******************************
  * 2. Odczytywanie składowych
  *******************************/
